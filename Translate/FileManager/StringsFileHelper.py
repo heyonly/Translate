@@ -30,7 +30,17 @@ class StringsFileHelper(FileHelper):
         dict = {}
         fd = open(file, "r")
         for line in fd:
+            if line.startswith("//") or line.startswith("#"):
+                continue
             line = line.replace("\n", "")
             array = line.split(separation, 1)
             dict[array[0]] = array[1]
         return dict
+
+    @classmethod
+    def read_strings_file(cls, file):
+        return cls.generateDictionary(file, "=")
+
+    @classmethod
+    def test(cls):
+        print("haha")
