@@ -20,21 +20,21 @@ class WxApplication(wx.App):
         return 0
 
 class WxFrame(wx.Frame):
-    def __init__(self):
-        super().__init__(parent=None,title='Box')
+    def __init__(self,parent=None):
+        wx.Frame.__init__(self,parent=parent,title="WxBox")
         self.Center()
-        pannel = wx.Panel(parent=self)
 
-        vbox = wx.BoxSizer(wx.VERTICAL)
-        hbox = wx.BoxSizer(wx.HORIZONTAL)
-        self.left_text = wx.TextCtrl(pannel,size=(300,200),style=wx.TE_MULTILINE)
-        hbox.Add(self.left_text,1, wx.EXPAND | wx.ALIGN_LEFT |wx.ALL,5)
+        vbox = wx.BoxSizer(wx.HORIZONTAL)
+        self.left_text = wx.TextCtrl(self,style=wx.TE_MULTILINE)
+        vbox.Add(self.left_text,1, wx.EXPAND | wx.ALIGN_LEFT |wx.ALL,10)
 
-        self.right_text = wx.TextCtrl(pannel,size=(300,200),style=wx.TE_MULTILINE)
-        hbox.Add(self.right_text, 1, wx.EXPAND | wx.ALIGN_LEFT | wx.ALL, 5)
-        vbox.Add(hbox)
+        self.right_text = wx.TextCtrl(self,style=wx.TE_MULTILINE)
+        vbox.Add(self.right_text, 1, wx.EXPAND | wx.ALIGN_LEFT | wx.ALL, 10)
 
-        pannel.SetSizer(vbox)
+        hbox = wx.BoxSizer()
+        hbox.Add(vbox)
+
+        self.SetSizer(hbox)
         self.Centre()
         self.Show()
         self.Fit()

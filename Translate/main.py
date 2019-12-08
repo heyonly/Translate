@@ -15,27 +15,22 @@ import wx
 
 from FileManager.StringsFileHelper import StringsFileHelper
 from GUI.RootWXViewApplication import *
-
-def dragged_files(files):
-    msg = '\n'.join((item.decode('gbk') for item in files))
-    print(msg)
+from GUI.RootViewApplication import *
 
 def start():
-    # file0 = sys.argv[1]
-    # file1 = sys.argv[2]
-    # dict0 = StringsFileHelper.read_strings_file(file0)
-    # dict1 = StringsFileHelper.read_strings_file(file1)
-    # root = Tk()
-    # root.minsize(960,540)
-    # root.title('place')
-    # app = Application(root)
-    # app.updafte_text(dict0)
-    #
-    # root.mainloop()
-    app = WxApplication()
+    file0 = sys.argv[1]
+    file1 = sys.argv[2]
+    root = Tk()
+    root.minsize(960,540)
+    root.title('place')
+    app = Application(root)
+    app.compare_two_files(file0,file1)
+    root.mainloop()
+
+    # app = WxApplication()
     # frame = MainFrame()
     # frame.Show(True)
-    app.MainLoop()
+    # app.MainLoop()
 
 def main():
     start()

@@ -7,7 +7,7 @@
 # ********************************
 import os
 from tkinter import *
-import windnd
+from FileManager.StringsFileHelper import StringsFileHelper
 
 CURRENT_PATH = os.path.abspath(".")
 
@@ -44,15 +44,15 @@ class Application(Frame):
         self.right_text = Text(self.right_entry, font=('StSong', 14))
         self.right_text.place(relx=0.0, rely=0.0, relwidth=1.0, relheight=1.0)
 
-    def update_text(self, dict=NONE):
-        if not type(dict).__name__ == 'dict':
-            return
+    def compare_two_files(self,f1,f2):
+        list1 = StringsFileHelper.SortFileContent(f1)
+        list2 = StringsFileHelper.SortFileContent(f2)
+        for line in list1:
+            self.insert_text(self.left_text,line)
 
-        for key, value in dict.items():
-            line = key + " = " + value + "\n"
-            print(line)
-            self.insert_text(line)
+        for line in list2:
+            self.insert_text(self.right_text,line)
 
 
-    def insert_text(self,text=NONE):
-        self.left_text.insert(END, text)
+    def insert_text(self,text=NONE,string=None):
+        text.insert(END, string)
