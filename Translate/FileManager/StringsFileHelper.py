@@ -14,23 +14,28 @@ class StringsFileHelper(FileHelper):
         content_list = []
         fd = open(file, "r")
         for line in fd:
-            line = line.replace("\n", "")
             content_list.append(line)
         fd.close()
         content_list.sort()
-        print(content_list)
-        fd = open(file, "r+")
-        fd.truncate()
-        for line in content_list:
-            fd.write(line + '\n')
-        fd.close()
+        return content_list
 
     @classmethod
     def generateDictionary(cls, file, separation):
         dict = {}
         fd = open(file, "r")
         for line in fd:
+            if line.startswith("//") or line.startswith("#"):
+                continue
             line = line.replace("\n", "")
             array = line.split(separation, 1)
             dict[array[0]] = array[1]
-        return dict
+        dict0 = sorted(dict.items(),key=lambda item:item[1])
+        return dict0
+
+    @classmethod
+    def read_strings_file(cls, file):
+        return cls.generateDictionary(file, "=")
+
+    @classmethod
+    def test(cls):
+        print("haha")
