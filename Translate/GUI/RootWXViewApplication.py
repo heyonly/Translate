@@ -23,22 +23,29 @@ class WxFrame(wx.Frame):
     def __init__(self,parent=None):
         wx.Frame.__init__(self,parent=parent,title="WxBox")
         self.Center()
+        vBoxSizer = wx.BoxSizer(wx.VERTICAL)
 
-        vbox = wx.BoxSizer(wx.HORIZONTAL)
-        self.left_text = wx.TextCtrl(self,style=wx.TE_MULTILINE)
-        vbox.Add(self.left_text,1, wx.EXPAND | wx.ALIGN_LEFT |wx.ALL,10)
+        topHBox = wx.BoxSizer(wx.HORIZONTAL)
+        self.btn3 = wx.Button(self, label='btn3')
+        self.btn4 = wx.Button(self, label='btn4')
+        topHBox.Add(self.btn3,proportion=1,flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=0)
+        topHBox.Add(self.btn4, proportion=1, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=0)
 
-        self.right_text = wx.TextCtrl(self,style=wx.TE_MULTILINE)
-        vbox.Add(self.right_text, 1, wx.EXPAND | wx.ALIGN_LEFT | wx.ALL, 10)
+        # BoxSizer布局
+        bootomBoxSizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.left_text = wx.TextCtrl(self, -1, 'btn1')
+        self.right_text = wx.TextCtrl(self, -1, 'btn2')
+        bootomBoxSizer.Add(self.left_text, proportion=1, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
+        bootomBoxSizer.Add(self.right_text, proportion=1, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
 
-        hbox = wx.BoxSizer()
-        hbox.Add(vbox)
+        vBoxSizer.Add(topHBox,proportion=1, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
+        vBoxSizer.Add(bootomBoxSizer,proportion=99, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
+        self.SetSizer(vBoxSizer)
 
-        self.SetSizer(hbox)
-        self.Centre()
-        self.Show()
-        self.Fit()
-
+        left_dt = FileDrop(self.left_text)
+        self.left_text.SetDropTarget(left_dt)
+        right_dt = FileDrop(self.right_text)
+        self.right_text.SetDropTarget(right_dt)
 
 def on_click(self):
         pass

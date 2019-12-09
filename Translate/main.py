@@ -9,7 +9,6 @@
 import sys
 import os
 from tkinter import *
-import windnd
 import tkinter.dnd as dnd
 import wx
 
@@ -20,17 +19,15 @@ from GUI.RootViewApplication import *
 def start():
     file0 = sys.argv[1]
     file1 = sys.argv[2]
-    root = Tk()
-    root.minsize(960,540)
-    root.title('place')
-    app = Application(root)
-    app.compare_two_files(file0,file1)
-    root.mainloop()
+    # root = Tk()
+    # root.minsize(960,540)
+    # root.title('place')
+    # app = Application(root)
+    # app.compare_two_files(file0,file1)
+    # root.mainloop()
 
-    # app = WxApplication()
-    # frame = MainFrame()
-    # frame.Show(True)
-    # app.MainLoop()
+    app = WxApplication()
+    app.MainLoop()
 
 def main():
     start()

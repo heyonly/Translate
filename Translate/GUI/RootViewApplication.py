@@ -45,8 +45,14 @@ class Application(Frame):
         self.right_text.place(relx=0.0, rely=0.0, relwidth=1.0, relheight=1.0)
 
     def compare_two_files(self,f1,f2):
-        list1 = StringsFileHelper.SortFileContent(f1)
-        list2 = StringsFileHelper.SortFileContent(f2)
+        list1 = []
+        if os.path.isfile(f1):
+            list1 = StringsFileHelper.SortFileContent(f1)
+
+        list2 = []
+        if os.path.isfile(f2):
+            list2 = StringsFileHelper.SortFileContent(f2)
+
         for line in list1:
             self.insert_text(self.left_text,line)
 
