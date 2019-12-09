@@ -5,15 +5,19 @@
 # @file     :RootWXViewApplication.py
 # ********************************
 # ********************************
-
+import os
 import wx
 from tkinter import *
+from FileManager.StringsFileHelper import StringsFileHelper
 
 class WxApplication(wx.App):
     def OnInit(self):
-        frame = WxFrame()
-        frame.Show()
+        self.frame = WxFrame()
+        self.frame.Show()
         return True
+
+    def compare_two_files(self, f1, f2):
+        self.frame.compare_two_files(f1,f2)
 
     def OnExit(self):
         print('exit')
@@ -47,6 +51,24 @@ class WxFrame(wx.Frame):
         right_dt = FileDrop(self.right_text)
         self.right_text.SetDropTarget(right_dt)
 
+    def compare_two_files(self,f1,f2):
+        list1 = []
+        if os.path.isfile(f1):
+            list1 = StringsFileHelper.SortFileContent(f1)
+
+        list2 = []
+        if os.path.isfile(f2):
+            list2 = StringsFileHelper.SortFileContent(f2)
+
+        for line in list1:
+            self.insert_text(self.left_text,line)
+
+        for line in list2:
+            self.insert_text(self.right_text,line)
+
+
+    def insert_text(self,text=NONE,string=None):
+        text.insert(END, string)
 
 class FileDrop(wx.FileDropTarget):
     def __init__(self, window):

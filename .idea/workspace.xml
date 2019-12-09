@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3cbabd2-001e-42c1-b777-55ec85206cad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI/RootWXViewApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/RootWXViewApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="ac73bda8-398e-4654-bb1e-c58788631c79" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Translate/.idea/Translate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Translate/.idea/Translate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Translate/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Translate/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Translate/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Translate/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Translate/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Translate/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,18 +20,21 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>OnDropFiles</find>
+    </findStrings>
   </component>
-  <component name="ProjectId" id="1UjQymzn7SnLj7g3s75lG0GGSvV" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1UjR3FCxXW1GQ59h1QMMvE61s9W" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FIleManager" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Translate/GUI" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -45,27 +50,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="Translate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="file" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Translate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,12 +58,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Translate" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/../../../log/asdf123450.strings $PROJECT_DIR$/../../../log/asdf12345.strings" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Translate/main.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/log/asdf12345.strings $USER_HOME$/log/asdf1.strings" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -93,26 +77,16 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f3cbabd2-001e-42c1-b777-55ec85206cad" name="Default Changelist" comment="" />
-      <created>1573573830534</created>
+      <changelist id="ac73bda8-398e-4654-bb1e-c58788631c79" name="Default Changelist" comment="" />
+      <created>1575474200751</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573573830534</updated>
+      <updated>1575474200751</updated>
     </task>
     <servers />
   </component>
@@ -130,9 +104,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -142,23 +114,21 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FileManager/FileHelper.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/Translate/main.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/Translate/FileManager/StringsFileHelper.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Translate/FileManager/StringsFileHelper.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <default-breakpoints>
-        <breakpoint type="python-exception">
-          <properties notifyOnTerminate="true" exception="BaseException">
-            <option name="notifyOnTerminate" value="true" />
-          </properties>
-        </breakpoint>
-      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
