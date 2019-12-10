@@ -58,9 +58,9 @@ class StringsFileHelper(FileHelper):
 
     @classmethod
     def DictionaryToArray(cls, dict, sorttype=0):
-        if sorttype == SortedType.Key or sorttype == SortedType.Item:
+        if sorttype == SortedType.Key.value or sorttype == SortedType.Item.value:
             return sorted(dict.items(), key=lambda d: d[0])
-        if sorttype == SortedType.value or sorttype == SortedType.Item:
+        if sorttype == SortedType.Value.value or sorttype == SortedType.Item.value:
             return sorted(dict.items(), key=lambda d: d[1])
 
 ##https://drmingdrmer.github.io/tech/algorithm/2019/01/09/dict-cmp.html
