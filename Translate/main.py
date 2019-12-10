@@ -20,9 +20,32 @@ def start():
     file0 = sys.argv[1]
     file1 = sys.argv[2]
 
-    app = WxApplication()
-    app.compare_two_files(file0, file1)
-    app.MainLoop()
+    # app = WxApplication()
+    # app.compare_two_files(file0, file1)
+    # app.MainLoop()
+
+    a = {
+        'x': 1,
+        'y': 2,
+        'z': 3
+    }
+
+    b = {
+        'w': 10,
+        'x': 11,
+        'y': 2
+    }
+
+    print('Common keys:', a.keys() & b.keys())
+    print('Keys in a not in b:', a.keys() - b.keys())
+    print('Keys in a or in b', a.keys() | b.keys())
+
+    print('(key,value) pairs in common:', a.items() & b.items())
+    print('(key,value) pairs in a not in b:', a.items() - b.items())
+
+    differ = StringsFileHelper.CompareTwoDicitionary(a,b,2)
+    print("differ:" , differ)
+
 
 def main():
     start()
