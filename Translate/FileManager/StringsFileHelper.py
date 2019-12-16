@@ -24,6 +24,8 @@ class StringsFileHelper(FileHelper):
         content_list = []
         fd = open(file, "r")
         for line in fd:
+            if line.startswith("//") or line.startswith("#"):
+                continue
             content_list.append(line)
         fd.close()
         content_list.sort()
@@ -31,14 +33,8 @@ class StringsFileHelper(FileHelper):
 
     @classmethod
     def generateDictionary(cls, file, separation):
-        dict = {}
-        fd = open(file, "r")
-        for line in fd:
-            if line.startswith("//") or line.startswith("#"):
-                continue
-            line = line.replace("\n", "")
-            array = line.split(separation, 1)
-            dict[array[0]] = array[1]
+        content_list = cls.SortFileContent(file)
+        dict = cls.ArrayToDictionary(content_list,'=')
         return dict
 
     @classmethod
@@ -53,7 +49,10 @@ class StringsFileHelper(FileHelper):
             if l.find(split) == -1:
                 continue
             arr = l.split(split,1)
-            dict[arr[0]] = arr[1]
+            key = arr[0].strip()
+            key = key.replace('"', '')
+            value = arr[1].strip()
+            dict[key] = value
         return dict
 
     @classmethod
@@ -62,6 +61,33 @@ class StringsFileHelper(FileHelper):
             return sorted(dict.items(), key=lambda d: d[0])
         if sorttype == SortedType.Value.value or sorttype == SortedType.Item.value:
             return sorted(dict.items(), key=lambda d: d[1])
+
+    @classmethod
+    def StringToList(cls,string):
+        pass
+
+
+    @classmethod
+    def StringToDictionary(cls,strings):
+        split = '\n'
+        if not '\n' in strings:
+            split = '\r'
+
+        content_list = strings.split(split)
+        dict = cls.ArrayToDictionary(content_list, '=')
+        return dict
+
+    @classmethod
+    def MergeTwoDictionary_Keys(cls,dict1,dict2):
+        list = []
+        for key in dict1.keys():
+            list.append(key)
+        for key in dict2.keys():
+            if key in list:
+                continue
+            list.append(key)
+        list.sort()
+        return list
 
 ##https://drmingdrmer.github.io/tech/algorithm/2019/01/09/dict-cmp.html
     @classmethod

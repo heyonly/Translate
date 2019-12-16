@@ -1,4 +1,4 @@
-#!/usr/bin/python3 python3.7
+#!/usr/bin/python3 python3.8
 # -*- coding: utf-8 -*-
 # @time     :2019/12/8 6:25 PM
 # @Author   :onlyswift
@@ -10,7 +10,7 @@ import wx
 from tkinter import *
 from FileManager.StringsFileHelper import StringsFileHelper
 from enum import Enum
-
+import wx.richtext as rt
 
 
 class WxApplication(wx.App):
@@ -42,15 +42,16 @@ class WxFrame(wx.Frame):
 
         # BoxSizer布局
         bootomBoxSizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.left_text = wx.TextCtrl(self, -1, 'btn1',style=wx.HSCROLL|wx.TE_MULTILINE|wx.TE_RICH2)
-        self.right_text = wx.TextCtrl(self, -1, 'btn2',style=wx.HSCROLL|wx.TE_MULTILINE|wx.TE_RICH2)
+        style = wx.HSCROLL|wx.VSCROLL|wx.TE_MULTILINE
+        self.left_text = wx.TextCtrl(self, -1, '"btn1"',style= style)
+        self.right_text = wx.TextCtrl(self, -1, '"btn2"',style=style)
         bootomBoxSizer.Add(self.left_text, proportion=1, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
         bootomBoxSizer.Add(self.right_text, proportion=1, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
 
         vBoxSizer.Add(topHBox,proportion=1, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
         vBoxSizer.Add(bootomBoxSizer,proportion=99, flag=wx.TOP | wx.BOTTOM | wx.EXPAND, border=10)
         self.SetSizer(vBoxSizer)
-        font = wx.Font(16, wx.HSCROLL,wx.MODERN, wx.NORMAL)
+        font = wx.Font(16,wx.MODERN, wx.NORMAL,False)
         self.left_text.SetFont(font)
         self.right_text.SetFont(font)
 
@@ -63,16 +64,38 @@ class WxFrame(wx.Frame):
         right_dt = FileDrop(self,self.right_text)
         self.right_text.SetDropTarget(right_dt)
 
+
     def on_drop_file(self, file, text_ctrl):
         print(file)
-        text_ctrl.SetValue('')
-        list1 = []
-        if os.path.isfile(file):
-            list1 = StringsFileHelper.SortFileContent(file)
-        for line in list1:
-            self.insert_text(text_ctrl,line)
 
+        other_text_ctrl = self.right_text
+        if text_ctrl == self.right_text:
+            other_text_ctrl = self.left_text
 
+        string = other_text_ctrl.GetValue()
+        dict2 = StringsFileHelper.StringToDictionary(string)
+        dict1 = StringsFileHelper.read_strings_file(file)
+
+        other_text_ctrl.Clear()
+        text_ctrl.Clear()
+        other_text_ctrl.SetInsertionPoint(0)
+        text_ctrl.SetInsertionPoint(0)
+
+        big_list = StringsFileHelper.MergeTwoDictionary_Keys(dict1, dict2)
+        for key in big_list:
+            str = '\n'
+            if key in dict1:
+                str = key + ' ' + '=' + ' ' + dict1[key]
+            if not str.endswith('\n'):
+                str = str + '\n'
+            self.insert_text(text_ctrl,str)
+
+            str = '\n'
+            if key in dict2:
+                str = key + ' ' + '=' + ' ' + dict2[key]
+            if not str.endswith('\n'):
+                str = str + '\n'
+            self.insert_text(other_text_ctrl,str)
 
     def on_click_item_button(self,event):
         print("onclick_item_button")
@@ -97,8 +120,8 @@ class WxFrame(wx.Frame):
         differ = set(dict1.items()) ^ set(dict2.items())
         print(differ)
 
-        self.left_text.SetValue('')
-        self.right_text.SetValue('')
+        self.left_text.Clear()
+        self.right_text.Clear()
         for line in list1:
             self.insert_text(self.left_text,line)
 
@@ -107,6 +130,8 @@ class WxFrame(wx.Frame):
 
 
     def insert_text(self,text=NONE,string=None):
+        string = string.replace('"','')
+
         text.AppendText(string)
         text.SetStyle(0,len(string),wx.TextAttr(wx.BLUE))
 
