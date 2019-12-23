@@ -49,9 +49,8 @@ class StringsFileHelper(FileHelper):
             if l.find(split) == -1:
                 continue
             arr = l.split(split,1)
-            key = arr[0].strip()
-            key = key.replace('"', '')
-            value = arr[1].strip()
+            key = arr[0]
+            value = arr[1]
             dict[key] = value
         return dict
 
@@ -98,3 +97,13 @@ class StringsFileHelper(FileHelper):
         elif comparetype == Comparasion.Key.value:
             differ = dict1.keys() & dict2
         return differ
+
+
+    @classmethod
+    def CommonKeysInTwoDictionarys(cls,dict1,dict2):
+        return dict2.keys & dict1.keys
+
+    @classmethod
+    def DifferentKeysInTwoDictionarys(cls,dict1,dict2):
+        return dict2.keys ^ dict1.keys
+

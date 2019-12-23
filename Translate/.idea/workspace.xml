@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3cbabd2-001e-42c1-b777-55ec85206cad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/RootGridViewApplication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/RootWxStyledApplication.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileManager/StringsFileHelper.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileManager/StringsFileHelper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/RootViewApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/RootViewApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/RootWXViewApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/RootWXViewApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +170,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FileManager/StringsFileHelper.py</url>
-          <line>94</line>
+          <line>93</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -184,12 +180,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FileManager/StringsFileHelper.py</url>
-          <line>86</line>
+          <line>85</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FileManager/StringsFileHelper.py</url>
-          <line>81</line>
+          <line>80</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -199,8 +195,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/RootViewApplication.py</url>
-          <line>86</line>
-          <option name="timeStamp" value="46" />
+          <line>109</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/RootViewApplication.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

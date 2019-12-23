@@ -81,11 +81,20 @@ class Application(Frame):
         self.compare_two_files(self.left_file_name,self.right_file_name)
 
     def compare_two_files(self, f1, f2):
-        list1 = []
+
+        self.left_file_name = f1
+        self.right_file_name = f2
         left_content = self.left_text.get(0.0, END)
         right_content = self.right_text.get(0.0, END)
         print(left_content)
         print(right_content)
+        self.left_text.tag_config('a',foreground='red')
+        self.left_text.tag_config('b',foreground='blue')
+
+        self.right_text.tag_config('a',foreground='red')
+        self.right_text.tag_config('b',foreground='blue')
+
+        list1 = []
         if f1 != None and os.path.isfile(f1):
             self.left_text.delete(0.0,END)
             list1 = StringsFileHelper.SortFileContent(f1)
@@ -95,11 +104,35 @@ class Application(Frame):
             self.right_text.delete(0.0,END)
             list2 = StringsFileHelper.SortFileContent(f2)
 
-        for line in list1:
-            self.insert_text(self.left_text,line)
+        left_dict = StringsFileHelper.ArrayToDictionary(list1, '=')
+        right_dict = StringsFileHelper.ArrayToDictionary(list2, '=')
 
-        for line in list2:
-            self.insert_text(self.right_text,line)
+        samekeys = left_dict.keys() & right_dict.keys()
+        after_samekeys = sorted(samekeys)
+
+        for key in after_samekeys:
+            self.left_text.insert(END, key, 'b')
+            str = '=' + left_dict[key]
+            self.left_text.insert(END, str)
+
+        for key in after_samekeys:
+            self.right_text.insert(END, key, 'b')
+            str = '=' + right_dict[key]
+            self.right_text.insert(END, str)
+
+        diffkeys = left_dict.keys() ^ right_dict.keys()
+        after_diffkeys = sorted(diffkeys)
+        for key in after_diffkeys:
+            if key in left_dict:
+                self.left_text.insert(END, key, 'a')
+                str = '=' + left_dict[key]
+                self.left_text.insert(END, str)
+
+        for key in after_diffkeys:
+            if key in right_dict:
+                self.right_text.insert(END, key, 'a')
+                str = '=' + right_dict[key]
+                self.right_text.insert(END, str)
 
 
     def insert_text(self,text=NONE,string=None):
